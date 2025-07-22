@@ -4,6 +4,7 @@ import {
   FaLinkedinIn,
   FaInstagram,
 } from "react-icons/fa";
+import ScrollFillNumber from "@/components/scrollNumber";
 
 export default function Home() {
   return (
@@ -53,7 +54,7 @@ export default function Home() {
       </section>
 
       {/* Project Section */}
-      <section className="mt-36 min-h-screen">
+      <section id="project-section" className="mt-36 min-h-screen">
         <p className="text-gray-600 mb-8">
           I specialize in building sites using Next.js and Tailwind CSS,<br />
           Here’s some of the projects I’ve built :
@@ -61,10 +62,10 @@ export default function Home() {
 
         <h2 className="text-2xl font-bold mb-12">My Projects</h2>
 
-        <div className="flex flex-col lg:flex-row items-start gap 10 sticky top-1/2 max-h-min">
+        <div className="flex flex-col lg:flex-row items-start gap 10 sticky top-1/2  max-h-screen">
           <div className="flex items-start gap-4 flex-1 h-full">
-            <div className="text-9xl font-bold text-gray-500">1</div>
-            <div className="flex flex-col items-start justify-center h-full">
+            <ScrollFillNumber sectionSelector="#project-section" />
+            <div className="flex flex-col justify-center items-start h-full pt-5">
               <h3 className="font-semibold">Nagari Limokoto</h3>
               <p className="text-sm text-gray-600 max-w-sm">
                 Helping local communities go digital, this website presents the
