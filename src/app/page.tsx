@@ -5,10 +5,11 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import ScrollFillNumber from "@/components/scrollNumber";
+import ScrollImage from "@/components/scrollImage";
 
 export default function Home() {
   return (
-    <main className="px-20 py-12 flex flex-col">
+    <main className="px-40 py-12 flex flex-col">
       <section className="min-h-screen flex flex-col justify-between">
         {/* Header */}
         <div className="flex justify-between items-center">
@@ -75,22 +76,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex gap-2">
-            <Image 
-              src={"/preview-web-desktop.svg"}
-              alt="desktop preview"
-              width={312}
-              height={192}
-              className="rounded"
-            />
-            <Image 
-              src={"/preview-web-mobile.svg"}
-              alt="desktop preview"
-              width={100}
-              height={72}
-              className="rounded"
-            />
-          </div>
+          <ScrollImage />
         </div>
       </section>
 
