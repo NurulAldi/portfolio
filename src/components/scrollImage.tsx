@@ -5,8 +5,19 @@ import Image from "next/image";
 
 export default function ScrollImage() {
     const [scrollY, setScrollY] = useState(0);
+    const [maxScroll, setMaxScroll] = useState(1);
+
     const imgHeight = 1200;
     const frameHeight = 190;
+
+    useEffect(() => {
+        const updateMaxScroll = () => {
+            setMaxScroll(document.body.scrollHeight - window.innerHeight || 1);
+        };
+        updateMaxScroll();
+        window.addEventListener("resize", updateMaxScroll);
+        return () => window.removeEventListener("resize", updateMaxScroll)
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => setScrollY(window.scrollY);
@@ -14,7 +25,6 @@ export default function ScrollImage() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const maxScroll = document?.body?.scrollHeight - window?.innerHeight || 1;
     const maxImgMove = imgHeight - frameHeight;
     const imgOffset = Math.min(
         maxImgMove,

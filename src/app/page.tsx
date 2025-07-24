@@ -9,7 +9,7 @@ import ScrollImage from "@/components/scrollImage";
 
 export default function Home() {
   return (
-    <main className="px-40 py-12 flex flex-col">
+    <main className="lg:px-40 px-8 py-12 flex flex-col">
       <section className="min-h-screen flex flex-col justify-between">
         {/* Header */}
         <div className="flex justify-between items-center">
