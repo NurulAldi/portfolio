@@ -6,6 +6,7 @@ import {
 } from "react-icons/fa";
 import ScrollFillNumber from "@/components/scrollNumber";
 import ScrollImage from "@/components/scrollImage";
+import InfiniteScrollSkills from "@/components/skills";
 
 export default function Home() {
   return (
@@ -52,6 +53,9 @@ export default function Home() {
             className="rounded"
           />
         </div>
+
+        {/* Horizontally scrollable skills */}
+        <InfiniteScrollSkills />
       </section>
 
       {/* Project Section */}
