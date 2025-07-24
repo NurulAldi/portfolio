@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function ScrollImage({ sectionSelector = "#project-section" }) {
     const [progress, setProgress] = useState(0);
 
-    const imgHeight = 1200;
+    const imgHeight = 920;
     const frameHeight = 190;
 
     useEffect(() => {
@@ -19,12 +19,16 @@ export default function ScrollImage({ sectionSelector = "#project-section" }) {
         const sectionHeight = rect.height;
 
         const start = windowHeight - sectionHeight / 3;
-        const end = -sectionHeight;
+        const scrollDistance = Math.max(1, start - (windowHeight - imgHeight - (sectionHeight - frameHeight) / 3));
+        const end = start - scrollDistance;
 
         let progress = 0;
-        if (rect.top < start && rect.bottom > 0) {
-            progress = (start - rect.top) / (start - end);
+        if (rect.top < start && rect.bottom > start - scrollDistance) {
+            progress = (start - rect.top) / scrollDistance;
             progress = Math.max(0, Math.min(1, progress));
+        } else if (rect.top <= start - scrollDistance) {
+            // Jika sudah lewat batas bawah, progress tetap 1
+            progress = 1;
         } else {
             progress = 0;
         }
@@ -39,13 +43,14 @@ export default function ScrollImage({ sectionSelector = "#project-section" }) {
         window.removeEventListener("scroll", handleScroll);
         window.removeEventListener("resize", handleScroll);
     };
-  }, [sectionSelector]);
+  }, [sectionSelector, imgHeight, frameHeight]);
 
     const maxImgMove = imgHeight - frameHeight;
-    const imgOffset = progress * maxImgMove;
+    const clampedProgress = Math.max(0, Math.min(1, progress));
+    const imgOffset = clampedProgress * maxImgMove;
 
     return (
-        <div className="flex gap-2">
+        <div className="flex flex-col lg:flex-row gap-2">
             <div
                 style={{
                     width: 312,
