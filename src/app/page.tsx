@@ -22,14 +22,14 @@ export default function Home() {
             className="rounded"
           />
           <div className="flex gap-16 text-2xl">
-            <a href="#"><FaGithub className="text-4xl " /></a>
+            <a href="https://github.com/NurulAldi"><FaGithub className="text-4xl " /></a>
             <a href="#"><FaLinkedinIn className="text-4xl" /></a>
             <a href="#"><FaInstagram className="text-4xl" /></a>
           </div>
         </div>
 
         {/* Content */}
-        <div className="flex flex-col lg:flex-row justify-between items-center flex-grow mt-20">
+        <div className="flex flex-col lg:flex-row justify-between items-center flex-grow mt-20 mb-20">
           {/* Left Text */}
           <div className="max-w-xl text-center lg:text-left">
             <p className="text-gray-600 text-2xl mb-2">Hi, I’m <span className="text-black font-semibold underline">Aldi</span></p>
