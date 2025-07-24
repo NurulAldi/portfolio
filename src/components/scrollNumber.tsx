@@ -15,13 +15,12 @@ export default function ScrollFillNumber({ sectionSelector = "#project-section" 
 
         let progress = 0;
         if (rect.top < windowHeight && rect.bottom > 0){
-            progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + sectionHeight)));
+            progress = (windowHeight - rect.top) / (windowHeight + sectionHeight);
         }
         setFillPercent(progress);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sectionSelector]);
 
