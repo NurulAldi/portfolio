@@ -59,7 +59,7 @@ export default function Home() {
       </section>
 
       {/* Project Section */}
-      <section id="project-section" className="mt-36 min-h-screen">
+      <section id="project-section" className="mt-20 lg:mt-0 min-h-screen">
         <p className="text-gray-600 mb-8">
           I specialize in building sites using Next.js and Tailwind CSS,<br />
           Here’s some of the projects I’ve built :

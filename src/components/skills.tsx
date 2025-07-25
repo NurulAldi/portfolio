@@ -46,7 +46,7 @@ export default function InfiniteScrollSkills() {
             <style jsx global>{`
                 :root {
                     --marquee-width: 100vw;
-                    --marquee-height: 10rem;
+                    --marquee-height: 15rem;
                     --marquee-element-width: calc(100% / var(--marquee-elements-displayed));
                     --marquee-animation-duration: calc(var(--marquee-elements) * 2s);
                 }
